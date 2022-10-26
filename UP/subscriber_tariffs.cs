@@ -12,19 +12,13 @@ namespace UP
     using System;
     using System.Collections.Generic;
     
-    public partial class type_of_services
+    public partial class subscriber_tariffs
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public type_of_services()
-        {
-            this.treaty = new HashSet<treaty>();
-        }
-    
         public int id { get; set; }
-        public string name { get; set; }
-        public Nullable<int> price { get; set; }
+        public Nullable<int> subscriber { get; set; }
+        public Nullable<int> tariff { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<treaty> treaty { get; set; }
+        public virtual subscribers subscribers { get; set; }
+        public virtual tariffs tariffs { get; set; }
     }
 }

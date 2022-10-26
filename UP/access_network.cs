@@ -12,20 +12,16 @@ namespace UP
     using System;
     using System.Collections.Generic;
     
-    public partial class repair_requsts
+    public partial class access_network
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public repair_requsts()
-        {
-            this.completed_applications = new HashSet<completed_applications>();
-        }
-    
         public int id { get; set; }
-        public Nullable<int> account_id { get; set; }
-        public Nullable<System.DateTime> application_date { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<completed_applications> completed_applications { get; set; }
-        public virtual personal_account personal_account { get; set; }
+        public string serial_number { get; set; }
+        public string name { get; set; }
+        public Nullable<int> ports_count { get; set; }
+        public string transfer_standart { get; set; }
+        public Nullable<double> frequency { get; set; }
+        public string interfaces { get; set; }
+        public string transfer_speed { get; set; }
+        public string location { get; set; }
     }
 }

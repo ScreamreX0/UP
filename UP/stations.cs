@@ -12,20 +12,13 @@ namespace UP
     using System;
     using System.Collections.Generic;
     
-    public partial class completed_applications
+    public partial class stations
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public completed_applications()
-        {
-            this.staff = new HashSet<staff>();
-        }
-    
         public int id { get; set; }
-        public Nullable<int> repair_request { get; set; }
-        public Nullable<int> completed_requests_count { get; set; }
+        public Nullable<int> base_station { get; set; }
+        public string address { get; set; }
+        public string location { get; set; }
     
-        public virtual repair_requsts repair_requsts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<staff> staff { get; set; }
+        public virtual base_stations base_stations { get; set; }
     }
 }

@@ -1,0 +1,1129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище UPModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="access_network">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="serial_number" Type="varchar" MaxLength="100" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="ports_count" Type="int" />
+          <Property Name="transfer_standart" Type="varchar" MaxLength="100" />
+          <Property Name="frequency" Type="float" />
+          <Property Name="interfaces" Type="varchar" MaxLength="255" />
+          <Property Name="transfer_speed" Type="varchar" MaxLength="50" />
+          <Property Name="location" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="applicaitons">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="number" Type="varchar" MaxLength="50" />
+          <Property Name="date" Type="date" />
+          <Property Name="subscriber" Type="int" />
+          <Property Name="service" Type="varchar" MaxLength="50" />
+          <Property Name="service_kind" Type="varchar" MaxLength="100" />
+          <Property Name="serivce_type" Type="varchar" MaxLength="100" />
+          <Property Name="status" Type="varchar" MaxLength="100" />
+          <Property Name="problem_description" Type="varchar" MaxLength="255" />
+          <Property Name="problem_type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="backbone_equipment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="number" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="frequency" Type="float" />
+          <Property Name="damping_factor" Type="float" />
+          <Property Name="transfer_technology" Type="varchar" MaxLength="100" />
+          <Property Name="location" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="base_stations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="area" Type="float" />
+          <Property Name="frequency" Type="float" />
+          <Property Name="antenna_type" Type="varchar" MaxLength="100" />
+          <Property Name="handover" Type="varchar" MaxLength="255" />
+          <Property Name="standart" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="employee_roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="info_for_employeers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employee_role" Type="int" />
+          <Property Name="message" Type="varchar" MaxLength="255" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="payments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="payment_sum" Type="float" />
+          <Property Name="subscriber_balance" Type="float" />
+          <Property Name="balance_date" Type="date" />
+          <Property Name="debt" Type="float" />
+          <Property Name="subscriber" Type="int" />
+        </EntityType>
+        <EntityType Name="st_petersburg_districts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="square" Type="float" />
+          <Property Name="population" Type="int" />
+          <Property Name="metro_stations_count" Type="int" />
+          <Property Name="building_type" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="stations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="base_station" Type="int" />
+          <Property Name="address" Type="varchar" MaxLength="255" />
+          <Property Name="location" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="subscriber_tariffs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subscriber" Type="int" />
+          <Property Name="tariff" Type="int" />
+        </EntityType>
+        <EntityType Name="subscribers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="number" Type="varchar" MaxLength="100" />
+          <Property Name="first_name" Type="varchar" MaxLength="100" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="last_name" Type="varchar" MaxLength="100" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="date_of_birth" Type="date" />
+          <Property Name="phone_number" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="registration_address" Type="varchar" MaxLength="255" />
+          <Property Name="address" Type="int" />
+          <Property Name="passport" Type="varchar" MaxLength="100" />
+          <Property Name="division_code" Type="varchar" MaxLength="50" />
+          <Property Name="issued_by" Type="varchar" MaxLength="255" />
+          <Property Name="issue_date" Type="date" />
+        </EntityType>
+        <EntityType Name="subscribers_addresses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="district" Type="int" />
+          <Property Name="address" Type="varchar" MaxLength="255" />
+          <Property Name="house" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="subscribers_equipment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="serial_number" Type="varchar" MaxLength="100" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="ports" Type="varchar" MaxLength="100" />
+          <Property Name="transfer_standart" Type="varchar" MaxLength="100" />
+          <Property Name="transfer_speed" Type="varchar" MaxLength="50" />
+          <Property Name="subscriber" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tariffs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="service_name" Type="varchar" MaxLength="100" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="terms" Type="varchar" MaxLength="255" />
+          <Property Name="cost" Type="float" />
+        </EntityType>
+        <EntityType Name="TNS_employeers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="number" Type="varchar" MaxLength="100" />
+          <Property Name="first_name" Type="varchar" MaxLength="100" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="last_name" Type="varchar" MaxLength="100" />
+          <Property Name="role" Type="int" />
+          <Property Name="login" Type="varchar" MaxLength="255" />
+          <Property Name="password" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="treates">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="number" Type="varchar" MaxLength="100" />
+          <Property Name="date" Type="date" />
+          <Property Name="type" Type="varchar" MaxLength="100" />
+          <Property Name="subscriber" Type="int" />
+          <Property Name="tariff" Type="int" />
+          <Property Name="termination_date" Type="date" />
+          <Property Name="termination_reason" Type="varchar" MaxLength="255" />
+          <Property Name="equipment_serial_number" Type="int" />
+        </EntityType>
+        <Association Name="FK__applicait__subsc__4E88ABD4">
+          <End Role="subscribers" Type="Self.subscribers" Multiplicity="0..1" />
+          <End Role="applicaitons" Type="Self.applicaitons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscribers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="applicaitons">
+              <PropertyRef Name="subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__info_for___emplo__4316F928">
+          <End Role="employee_roles" Type="Self.employee_roles" Multiplicity="0..1" />
+          <End Role="info_for_employeers" Type="Self.info_for_employeers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee_roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="info_for_employeers">
+              <PropertyRef Name="employee_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__payments__subscr__5165187F">
+          <End Role="subscribers" Type="Self.subscribers" Multiplicity="0..1" />
+          <End Role="payments" Type="Self.payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscribers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="payments">
+              <PropertyRef Name="subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__stations__base_s__48CFD27E">
+          <End Role="base_stations" Type="Self.base_stations" Multiplicity="0..1" />
+          <End Role="stations" Type="Self.stations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_stations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="stations">
+              <PropertyRef Name="base_station" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subscribe__addre__403A8C7D">
+          <End Role="subscribers_addresses" Type="Self.subscribers_addresses" Multiplicity="0..1" />
+          <End Role="subscribers" Type="Self.subscribers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscribers_addresses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subscribers">
+              <PropertyRef Name="address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subscribe__distr__37A5467C">
+          <End Role="st_petersburg_districts" Type="Self.st_petersburg_districts" Multiplicity="0..1" />
+          <End Role="subscribers_addresses" Type="Self.subscribers_addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="st_petersburg_districts">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subscribers_addresses">
+              <PropertyRef Name="district" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subscribe__subsc__4BAC3F29">
+          <End Role="subscribers" Type="Self.subscribers" Multiplicity="0..1" />
+          <End Role="subscribers_equipment" Type="Self.subscribers_equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscribers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subscribers_equipment">
+              <PropertyRef Name="subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subscribe__subsc__5441852A">
+          <End Role="subscribers" Type="Self.subscribers" Multiplicity="0..1" />
+          <End Role="subscriber_tariffs" Type="Self.subscriber_tariffs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscribers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subscriber_tariffs">
+              <PropertyRef Name="subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subscribe__tarif__5535A963">
+          <End Role="tariffs" Type="Self.tariffs" Multiplicity="0..1" />
+          <End Role="subscriber_tariffs" Type="Self.subscriber_tariffs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tariffs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subscriber_tariffs">
+              <PropertyRef Name="tariff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TNS_employ__role__45F365D3">
+          <End Role="employee_roles" Type="Self.employee_roles" Multiplicity="0..1" />
+          <End Role="TNS_employeers" Type="Self.TNS_employeers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee_roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TNS_employeers">
+              <PropertyRef Name="role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treates__equipme__59FA5E80">
+          <End Role="subscribers_equipment" Type="Self.subscribers_equipment" Multiplicity="0..1" />
+          <End Role="treates" Type="Self.treates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscribers_equipment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treates">
+              <PropertyRef Name="equipment_serial_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treates__subscri__5812160E">
+          <End Role="subscribers" Type="Self.subscribers" Multiplicity="0..1" />
+          <End Role="treates" Type="Self.treates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscribers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treates">
+              <PropertyRef Name="subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treates__tariff__59063A47">
+          <End Role="tariffs" Type="Self.tariffs" Multiplicity="0..1" />
+          <End Role="treates" Type="Self.treates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tariffs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treates">
+              <PropertyRef Name="tariff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище UPModelContainer">
+          <EntitySet Name="access_network" EntityType="Self.access_network" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="applicaitons" EntityType="Self.applicaitons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="backbone_equipment" EntityType="Self.backbone_equipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="base_stations" EntityType="Self.base_stations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employee_roles" EntityType="Self.employee_roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="info_for_employeers" EntityType="Self.info_for_employeers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payments" EntityType="Self.payments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="st_petersburg_districts" EntityType="Self.st_petersburg_districts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stations" EntityType="Self.stations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subscriber_tariffs" EntityType="Self.subscriber_tariffs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subscribers" EntityType="Self.subscribers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subscribers_addresses" EntityType="Self.subscribers_addresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subscribers_equipment" EntityType="Self.subscribers_equipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tariffs" EntityType="Self.tariffs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TNS_employeers" EntityType="Self.TNS_employeers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="treates" EntityType="Self.treates" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__applicait__subsc__4E88ABD4" Association="Self.FK__applicait__subsc__4E88ABD4">
+            <End Role="subscribers" EntitySet="subscribers" />
+            <End Role="applicaitons" EntitySet="applicaitons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__info_for___emplo__4316F928" Association="Self.FK__info_for___emplo__4316F928">
+            <End Role="employee_roles" EntitySet="employee_roles" />
+            <End Role="info_for_employeers" EntitySet="info_for_employeers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__payments__subscr__5165187F" Association="Self.FK__payments__subscr__5165187F">
+            <End Role="subscribers" EntitySet="subscribers" />
+            <End Role="payments" EntitySet="payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__stations__base_s__48CFD27E" Association="Self.FK__stations__base_s__48CFD27E">
+            <End Role="base_stations" EntitySet="base_stations" />
+            <End Role="stations" EntitySet="stations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subscribe__addre__403A8C7D" Association="Self.FK__subscribe__addre__403A8C7D">
+            <End Role="subscribers_addresses" EntitySet="subscribers_addresses" />
+            <End Role="subscribers" EntitySet="subscribers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subscribe__distr__37A5467C" Association="Self.FK__subscribe__distr__37A5467C">
+            <End Role="st_petersburg_districts" EntitySet="st_petersburg_districts" />
+            <End Role="subscribers_addresses" EntitySet="subscribers_addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subscribe__subsc__4BAC3F29" Association="Self.FK__subscribe__subsc__4BAC3F29">
+            <End Role="subscribers" EntitySet="subscribers" />
+            <End Role="subscribers_equipment" EntitySet="subscribers_equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subscribe__subsc__5441852A" Association="Self.FK__subscribe__subsc__5441852A">
+            <End Role="subscribers" EntitySet="subscribers" />
+            <End Role="subscriber_tariffs" EntitySet="subscriber_tariffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subscribe__tarif__5535A963" Association="Self.FK__subscribe__tarif__5535A963">
+            <End Role="tariffs" EntitySet="tariffs" />
+            <End Role="subscriber_tariffs" EntitySet="subscriber_tariffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TNS_employ__role__45F365D3" Association="Self.FK__TNS_employ__role__45F365D3">
+            <End Role="employee_roles" EntitySet="employee_roles" />
+            <End Role="TNS_employeers" EntitySet="TNS_employeers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treates__equipme__59FA5E80" Association="Self.FK__treates__equipme__59FA5E80">
+            <End Role="subscribers_equipment" EntitySet="subscribers_equipment" />
+            <End Role="treates" EntitySet="treates" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treates__subscri__5812160E" Association="Self.FK__treates__subscri__5812160E">
+            <End Role="subscribers" EntitySet="subscribers" />
+            <End Role="treates" EntitySet="treates" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treates__tariff__59063A47" Association="Self.FK__treates__tariff__59063A47">
+            <End Role="tariffs" EntitySet="tariffs" />
+            <End Role="treates" EntitySet="treates" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="access_network">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serial_number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ports_count" Type="Int32" />
+          <Property Name="transfer_standart" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="frequency" Type="Double" />
+          <Property Name="interfaces" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="transfer_speed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="applicaitons">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="subscriber" Type="Int32" />
+          <Property Name="service" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="service_kind" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="serivce_type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="problem_description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="problem_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="subscribers" Relationship="Self.FK__applicait__subsc__4E88ABD4" FromRole="applicaitons" ToRole="subscribers" />
+        </EntityType>
+        <EntityType Name="backbone_equipment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="frequency" Type="Double" />
+          <Property Name="damping_factor" Type="Double" />
+          <Property Name="transfer_technology" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="base_stations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="area" Type="Double" />
+          <Property Name="frequency" Type="Double" />
+          <Property Name="antenna_type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="handover" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="standart" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="stations" Relationship="Self.FK__stations__base_s__48CFD27E" FromRole="base_stations" ToRole="stations" />
+        </EntityType>
+        <EntityType Name="employee_roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="info_for_employeers" Relationship="Self.FK__info_for___emplo__4316F928" FromRole="employee_roles" ToRole="info_for_employeers" />
+          <NavigationProperty Name="TNS_employeers" Relationship="Self.FK__TNS_employ__role__45F365D3" FromRole="employee_roles" ToRole="TNS_employeers" />
+        </EntityType>
+        <EntityType Name="info_for_employeers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employee_role" Type="Int32" />
+          <Property Name="message" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="employee_roles" Relationship="Self.FK__info_for___emplo__4316F928" FromRole="info_for_employeers" ToRole="employee_roles" />
+        </EntityType>
+        <EntityType Name="payments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="payment_sum" Type="Double" />
+          <Property Name="subscriber_balance" Type="Double" />
+          <Property Name="balance_date" Type="DateTime" Precision="0" />
+          <Property Name="debt" Type="Double" />
+          <Property Name="subscriber" Type="Int32" />
+          <NavigationProperty Name="subscribers" Relationship="Self.FK__payments__subscr__5165187F" FromRole="payments" ToRole="subscribers" />
+        </EntityType>
+        <EntityType Name="st_petersburg_districts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="square" Type="Double" />
+          <Property Name="population" Type="Int32" />
+          <Property Name="metro_stations_count" Type="Int32" />
+          <Property Name="building_type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="subscribers_addresses" Relationship="Self.FK__subscribe__distr__37A5467C" FromRole="st_petersburg_districts" ToRole="subscribers_addresses" />
+        </EntityType>
+        <EntityType Name="stations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="base_station" Type="Int32" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="base_stations" Relationship="Self.FK__stations__base_s__48CFD27E" FromRole="stations" ToRole="base_stations" />
+        </EntityType>
+        <EntityType Name="subscriber_tariffs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subscriber" Type="Int32" />
+          <Property Name="tariff" Type="Int32" />
+          <NavigationProperty Name="subscribers" Relationship="Self.FK__subscribe__subsc__5441852A" FromRole="subscriber_tariffs" ToRole="subscribers" />
+          <NavigationProperty Name="tariffs" Relationship="Self.FK__subscribe__tarif__5535A963" FromRole="subscriber_tariffs" ToRole="tariffs" />
+        </EntityType>
+        <EntityType Name="subscribers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="first_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_of_birth" Type="DateTime" Precision="0" />
+          <Property Name="phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="registration_address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="Int32" />
+          <Property Name="passport" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="division_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="issued_by" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="issue_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="applicaitons" Relationship="Self.FK__applicait__subsc__4E88ABD4" FromRole="subscribers" ToRole="applicaitons" />
+          <NavigationProperty Name="payments" Relationship="Self.FK__payments__subscr__5165187F" FromRole="subscribers" ToRole="payments" />
+          <NavigationProperty Name="subscriber_tariffs" Relationship="Self.FK__subscribe__subsc__5441852A" FromRole="subscribers" ToRole="subscriber_tariffs" />
+          <NavigationProperty Name="subscribers_addresses" Relationship="Self.FK__subscribe__addre__403A8C7D" FromRole="subscribers" ToRole="subscribers_addresses" />
+          <NavigationProperty Name="subscribers_equipment" Relationship="Self.FK__subscribe__subsc__4BAC3F29" FromRole="subscribers" ToRole="subscribers_equipment" />
+          <NavigationProperty Name="treates" Relationship="Self.FK__treates__subscri__5812160E" FromRole="subscribers" ToRole="treates" />
+        </EntityType>
+        <EntityType Name="subscribers_addresses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="district" Type="Int32" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="house" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="st_petersburg_districts" Relationship="Self.FK__subscribe__distr__37A5467C" FromRole="subscribers_addresses" ToRole="st_petersburg_districts" />
+          <NavigationProperty Name="subscribers" Relationship="Self.FK__subscribe__addre__403A8C7D" FromRole="subscribers_addresses" ToRole="subscribers" />
+        </EntityType>
+        <EntityType Name="subscribers_equipment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serial_number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ports" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="transfer_standart" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="transfer_speed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="subscriber" Type="Int32" />
+          <NavigationProperty Name="subscribers" Relationship="Self.FK__subscribe__subsc__4BAC3F29" FromRole="subscribers_equipment" ToRole="subscribers" />
+          <NavigationProperty Name="treates" Relationship="Self.FK__treates__equipme__59FA5E80" FromRole="subscribers_equipment" ToRole="treates" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tariffs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="service_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="terms" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="cost" Type="Double" />
+          <NavigationProperty Name="subscriber_tariffs" Relationship="Self.FK__subscribe__tarif__5535A963" FromRole="tariffs" ToRole="subscriber_tariffs" />
+          <NavigationProperty Name="treates" Relationship="Self.FK__treates__tariff__59063A47" FromRole="tariffs" ToRole="treates" />
+        </EntityType>
+        <EntityType Name="TNS_employeers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="first_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="role" Type="Int32" />
+          <NavigationProperty Name="employee_roles" Relationship="Self.FK__TNS_employ__role__45F365D3" FromRole="TNS_employeers" ToRole="employee_roles" />
+          <Property Name="login" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="treates">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="subscriber" Type="Int32" />
+          <Property Name="tariff" Type="Int32" />
+          <Property Name="termination_date" Type="DateTime" Precision="0" />
+          <Property Name="termination_reason" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="equipment_serial_number" Type="Int32" />
+          <NavigationProperty Name="subscribers" Relationship="Self.FK__treates__subscri__5812160E" FromRole="treates" ToRole="subscribers" />
+          <NavigationProperty Name="subscribers_equipment" Relationship="Self.FK__treates__equipme__59FA5E80" FromRole="treates" ToRole="subscribers_equipment" />
+          <NavigationProperty Name="tariffs" Relationship="Self.FK__treates__tariff__59063A47" FromRole="treates" ToRole="tariffs" />
+        </EntityType>
+        <Association Name="FK__applicait__subsc__4E88ABD4">
+          <End Role="subscribers" Type="Self.subscribers" Multiplicity="0..1" />
+          <End Role="applicaitons" Type="Self.applicaitons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscribers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="applicaitons">
+              <PropertyRef Name="subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__stations__base_s__48CFD27E">
+          <End Role="base_stations" Type="Self.base_stations" Multiplicity="0..1" />
+          <End Role="stations" Type="Self.stations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_stations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="stations">
+              <PropertyRef Name="base_station" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__info_for___emplo__4316F928">
+          <End Role="employee_roles" Type="Self.employee_roles" Multiplicity="0..1" />
+          <End Role="info_for_employeers" Type="Self.info_for_employeers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee_roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="info_for_employeers">
+              <PropertyRef Name="employee_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TNS_employ__role__45F365D3">
+          <End Role="employee_roles" Type="Self.employee_roles" Multiplicity="0..1" />
+          <End Role="TNS_employeers" Type="Self.TNS_employeers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee_roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TNS_employeers">
+              <PropertyRef Name="role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__payments__subscr__5165187F">
+          <End Role="subscribers" Type="Self.subscribers" Multiplicity="0..1" />
+          <End Role="payments" Type="Self.payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscribers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="payments">
+              <PropertyRef Name="subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subscribe__distr__37A5467C">
+          <End Role="st_petersburg_districts" Type="Self.st_petersburg_districts" Multiplicity="0..1" />
+          <End Role="subscribers_addresses" Type="Self.subscribers_addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="st_petersburg_districts">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subscribers_addresses">
+              <PropertyRef Name="district" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subscribe__subsc__5441852A">
+          <End Role="subscribers" Type="Self.subscribers" Multiplicity="0..1" />
+          <End Role="subscriber_tariffs" Type="Self.subscriber_tariffs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscribers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subscriber_tariffs">
+              <PropertyRef Name="subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subscribe__tarif__5535A963">
+          <End Role="tariffs" Type="Self.tariffs" Multiplicity="0..1" />
+          <End Role="subscriber_tariffs" Type="Self.subscriber_tariffs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tariffs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subscriber_tariffs">
+              <PropertyRef Name="tariff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subscribe__addre__403A8C7D">
+          <End Role="subscribers_addresses" Type="Self.subscribers_addresses" Multiplicity="0..1" />
+          <End Role="subscribers" Type="Self.subscribers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscribers_addresses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subscribers">
+              <PropertyRef Name="address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subscribe__subsc__4BAC3F29">
+          <End Role="subscribers" Type="Self.subscribers" Multiplicity="0..1" />
+          <End Role="subscribers_equipment" Type="Self.subscribers_equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscribers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subscribers_equipment">
+              <PropertyRef Name="subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treates__subscri__5812160E">
+          <End Role="subscribers" Type="Self.subscribers" Multiplicity="0..1" />
+          <End Role="treates" Type="Self.treates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscribers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treates">
+              <PropertyRef Name="subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treates__equipme__59FA5E80">
+          <End Role="subscribers_equipment" Type="Self.subscribers_equipment" Multiplicity="0..1" />
+          <End Role="treates" Type="Self.treates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscribers_equipment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treates">
+              <PropertyRef Name="equipment_serial_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treates__tariff__59063A47">
+          <End Role="tariffs" Type="Self.tariffs" Multiplicity="0..1" />
+          <End Role="treates" Type="Self.treates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tariffs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treates">
+              <PropertyRef Name="tariff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="access_network" EntityType="Self.access_network" />
+          <EntitySet Name="applicaitons" EntityType="Self.applicaitons" />
+          <EntitySet Name="backbone_equipment" EntityType="Self.backbone_equipment" />
+          <EntitySet Name="base_stations" EntityType="Self.base_stations" />
+          <EntitySet Name="employee_roles" EntityType="Self.employee_roles" />
+          <EntitySet Name="info_for_employeers" EntityType="Self.info_for_employeers" />
+          <EntitySet Name="payments" EntityType="Self.payments" />
+          <EntitySet Name="st_petersburg_districts" EntityType="Self.st_petersburg_districts" />
+          <EntitySet Name="stations" EntityType="Self.stations" />
+          <EntitySet Name="subscriber_tariffs" EntityType="Self.subscriber_tariffs" />
+          <EntitySet Name="subscribers" EntityType="Self.subscribers" />
+          <EntitySet Name="subscribers_addresses" EntityType="Self.subscribers_addresses" />
+          <EntitySet Name="subscribers_equipment" EntityType="Self.subscribers_equipment" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="tariffs" EntityType="Self.tariffs" />
+          <EntitySet Name="TNS_employeers" EntityType="Self.TNS_employeers" />
+          <EntitySet Name="treates" EntityType="Self.treates" />
+          <AssociationSet Name="FK__applicait__subsc__4E88ABD4" Association="Self.FK__applicait__subsc__4E88ABD4">
+            <End Role="subscribers" EntitySet="subscribers" />
+            <End Role="applicaitons" EntitySet="applicaitons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__stations__base_s__48CFD27E" Association="Self.FK__stations__base_s__48CFD27E">
+            <End Role="base_stations" EntitySet="base_stations" />
+            <End Role="stations" EntitySet="stations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__info_for___emplo__4316F928" Association="Self.FK__info_for___emplo__4316F928">
+            <End Role="employee_roles" EntitySet="employee_roles" />
+            <End Role="info_for_employeers" EntitySet="info_for_employeers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TNS_employ__role__45F365D3" Association="Self.FK__TNS_employ__role__45F365D3">
+            <End Role="employee_roles" EntitySet="employee_roles" />
+            <End Role="TNS_employeers" EntitySet="TNS_employeers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__payments__subscr__5165187F" Association="Self.FK__payments__subscr__5165187F">
+            <End Role="subscribers" EntitySet="subscribers" />
+            <End Role="payments" EntitySet="payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subscribe__distr__37A5467C" Association="Self.FK__subscribe__distr__37A5467C">
+            <End Role="st_petersburg_districts" EntitySet="st_petersburg_districts" />
+            <End Role="subscribers_addresses" EntitySet="subscribers_addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subscribe__subsc__5441852A" Association="Self.FK__subscribe__subsc__5441852A">
+            <End Role="subscribers" EntitySet="subscribers" />
+            <End Role="subscriber_tariffs" EntitySet="subscriber_tariffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subscribe__tarif__5535A963" Association="Self.FK__subscribe__tarif__5535A963">
+            <End Role="tariffs" EntitySet="tariffs" />
+            <End Role="subscriber_tariffs" EntitySet="subscriber_tariffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subscribe__addre__403A8C7D" Association="Self.FK__subscribe__addre__403A8C7D">
+            <End Role="subscribers_addresses" EntitySet="subscribers_addresses" />
+            <End Role="subscribers" EntitySet="subscribers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subscribe__subsc__4BAC3F29" Association="Self.FK__subscribe__subsc__4BAC3F29">
+            <End Role="subscribers" EntitySet="subscribers" />
+            <End Role="subscribers_equipment" EntitySet="subscribers_equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treates__subscri__5812160E" Association="Self.FK__treates__subscri__5812160E">
+            <End Role="subscribers" EntitySet="subscribers" />
+            <End Role="treates" EntitySet="treates" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treates__equipme__59FA5E80" Association="Self.FK__treates__equipme__59FA5E80">
+            <End Role="subscribers_equipment" EntitySet="subscribers_equipment" />
+            <End Role="treates" EntitySet="treates" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treates__tariff__59063A47" Association="Self.FK__treates__tariff__59063A47">
+            <End Role="tariffs" EntitySet="tariffs" />
+            <End Role="treates" EntitySet="treates" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище UPModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="access_network">
+            <EntityTypeMapping TypeName="UPModel.access_network">
+              <MappingFragment StoreEntitySet="access_network">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="serial_number" ColumnName="serial_number" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ports_count" ColumnName="ports_count" />
+                <ScalarProperty Name="transfer_standart" ColumnName="transfer_standart" />
+                <ScalarProperty Name="frequency" ColumnName="frequency" />
+                <ScalarProperty Name="interfaces" ColumnName="interfaces" />
+                <ScalarProperty Name="transfer_speed" ColumnName="transfer_speed" />
+                <ScalarProperty Name="location" ColumnName="location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="applicaitons">
+            <EntityTypeMapping TypeName="UPModel.applicaitons">
+              <MappingFragment StoreEntitySet="applicaitons">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="subscriber" ColumnName="subscriber" />
+                <ScalarProperty Name="service" ColumnName="service" />
+                <ScalarProperty Name="service_kind" ColumnName="service_kind" />
+                <ScalarProperty Name="serivce_type" ColumnName="serivce_type" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="problem_description" ColumnName="problem_description" />
+                <ScalarProperty Name="problem_type" ColumnName="problem_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="backbone_equipment">
+            <EntityTypeMapping TypeName="UPModel.backbone_equipment">
+              <MappingFragment StoreEntitySet="backbone_equipment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="frequency" ColumnName="frequency" />
+                <ScalarProperty Name="damping_factor" ColumnName="damping_factor" />
+                <ScalarProperty Name="transfer_technology" ColumnName="transfer_technology" />
+                <ScalarProperty Name="location" ColumnName="location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="base_stations">
+            <EntityTypeMapping TypeName="UPModel.base_stations">
+              <MappingFragment StoreEntitySet="base_stations">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="frequency" ColumnName="frequency" />
+                <ScalarProperty Name="antenna_type" ColumnName="antenna_type" />
+                <ScalarProperty Name="handover" ColumnName="handover" />
+                <ScalarProperty Name="standart" ColumnName="standart" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employee_roles">
+            <EntityTypeMapping TypeName="UPModel.employee_roles">
+              <MappingFragment StoreEntitySet="employee_roles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="info_for_employeers">
+            <EntityTypeMapping TypeName="UPModel.info_for_employeers">
+              <MappingFragment StoreEntitySet="info_for_employeers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="employee_role" ColumnName="employee_role" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payments">
+            <EntityTypeMapping TypeName="UPModel.payments">
+              <MappingFragment StoreEntitySet="payments">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="payment_sum" ColumnName="payment_sum" />
+                <ScalarProperty Name="subscriber_balance" ColumnName="subscriber_balance" />
+                <ScalarProperty Name="balance_date" ColumnName="balance_date" />
+                <ScalarProperty Name="debt" ColumnName="debt" />
+                <ScalarProperty Name="subscriber" ColumnName="subscriber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="st_petersburg_districts">
+            <EntityTypeMapping TypeName="UPModel.st_petersburg_districts">
+              <MappingFragment StoreEntitySet="st_petersburg_districts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="square" ColumnName="square" />
+                <ScalarProperty Name="population" ColumnName="population" />
+                <ScalarProperty Name="metro_stations_count" ColumnName="metro_stations_count" />
+                <ScalarProperty Name="building_type" ColumnName="building_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stations">
+            <EntityTypeMapping TypeName="UPModel.stations">
+              <MappingFragment StoreEntitySet="stations">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="base_station" ColumnName="base_station" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="location" ColumnName="location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subscriber_tariffs">
+            <EntityTypeMapping TypeName="UPModel.subscriber_tariffs">
+              <MappingFragment StoreEntitySet="subscriber_tariffs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="subscriber" ColumnName="subscriber" />
+                <ScalarProperty Name="tariff" ColumnName="tariff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subscribers">
+            <EntityTypeMapping TypeName="UPModel.subscribers">
+              <MappingFragment StoreEntitySet="subscribers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="registration_address" ColumnName="registration_address" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="passport" ColumnName="passport" />
+                <ScalarProperty Name="division_code" ColumnName="division_code" />
+                <ScalarProperty Name="issued_by" ColumnName="issued_by" />
+                <ScalarProperty Name="issue_date" ColumnName="issue_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subscribers_addresses">
+            <EntityTypeMapping TypeName="UPModel.subscribers_addresses">
+              <MappingFragment StoreEntitySet="subscribers_addresses">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="district" ColumnName="district" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="house" ColumnName="house" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subscribers_equipment">
+            <EntityTypeMapping TypeName="UPModel.subscribers_equipment">
+              <MappingFragment StoreEntitySet="subscribers_equipment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="serial_number" ColumnName="serial_number" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ports" ColumnName="ports" />
+                <ScalarProperty Name="transfer_standart" ColumnName="transfer_standart" />
+                <ScalarProperty Name="transfer_speed" ColumnName="transfer_speed" />
+                <ScalarProperty Name="subscriber" ColumnName="subscriber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="UPModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tariffs">
+            <EntityTypeMapping TypeName="UPModel.tariffs">
+              <MappingFragment StoreEntitySet="tariffs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="service_name" ColumnName="service_name" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="terms" ColumnName="terms" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TNS_employeers">
+            <EntityTypeMapping TypeName="UPModel.TNS_employeers">
+              <MappingFragment StoreEntitySet="TNS_employeers">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="treates">
+            <EntityTypeMapping TypeName="UPModel.treates">
+              <MappingFragment StoreEntitySet="treates">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="subscriber" ColumnName="subscriber" />
+                <ScalarProperty Name="tariff" ColumnName="tariff" />
+                <ScalarProperty Name="termination_date" ColumnName="termination_date" />
+                <ScalarProperty Name="termination_reason" ColumnName="termination_reason" />
+                <ScalarProperty Name="equipment_serial_number" ColumnName="equipment_serial_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -12,16 +12,21 @@ namespace UP
     using System;
     using System.Collections.Generic;
     
-    public partial class staff
+    public partial class subscribers_addresses
     {
-        public int id { get; set; }
-        public string surname { get; set; }
-        public string name { get; set; }
-        public string last_name { get; set; }
-        public Nullable<int> job { get; set; }
-        public Nullable<int> completed_app { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public subscribers_addresses()
+        {
+            this.subscribers = new HashSet<subscribers>();
+        }
     
-        public virtual completed_applications completed_applications { get; set; }
-        public virtual job_title job_title { get; set; }
+        public int id { get; set; }
+        public Nullable<int> district { get; set; }
+        public string address { get; set; }
+        public string house { get; set; }
+    
+        public virtual st_petersburg_districts st_petersburg_districts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<subscribers> subscribers { get; set; }
     }
 }

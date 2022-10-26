@@ -2,13 +2,14 @@
 
 namespace UP.Utils
 {
-    class Helper
+    internal class Helper
     {
         public static void openWindow(Form newForm, Form parent)
         {
-            Form menu = new Form();
+            newForm.Location = parent.Location;
+            newForm.StartPosition = FormStartPosition.Manual;
             parent.Hide();
-            menu.Show();
+            newForm.Show();
         }
     }
 }

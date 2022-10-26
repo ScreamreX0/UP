@@ -41,6 +41,7 @@
             this.enterButton = new System.Windows.Forms.Button();
             this.capchaImage = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.capchaImage)).BeginInit();
             this.SuspendLayout();
@@ -109,6 +110,7 @@
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.Size = new System.Drawing.Size(134, 29);
             this.codeTextBox.TabIndex = 7;
+            this.codeTextBox.TextChanged += new System.EventHandler(this.codeTextBox_TextChanged);
             // 
             // label4
             // 
@@ -160,11 +162,22 @@
             this.timer.Interval = 10000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(581, 362);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 43);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Войти как сотрудник";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Auth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 417);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.capchaImage);
             this.Controls.Add(this.enterButton);
             this.Controls.Add(this.cancelButton);
@@ -176,7 +189,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "Auth";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.capchaImage)).EndInit();
             this.ResumeLayout(false);
@@ -198,6 +211,7 @@
         private System.Windows.Forms.Button enterButton;
         private System.Windows.Forms.PictureBox capchaImage;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button button1;
     }
 }
 

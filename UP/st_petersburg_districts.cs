@@ -12,25 +12,22 @@ namespace UP
     using System;
     using System.Collections.Generic;
     
-    public partial class treaty
+    public partial class st_petersburg_districts
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public treaty()
+        public st_petersburg_districts()
         {
-            this.personal_account = new HashSet<personal_account>();
+            this.subscribers_addresses = new HashSet<subscribers_addresses>();
         }
     
         public int id { get; set; }
-        public string number { get; set; }
-        public Nullable<int> type_of_services { get; set; }
-        public Nullable<int> subscriber { get; set; }
-        public Nullable<System.DateTime> date_of_conclusion { get; set; }
-        public Nullable<System.DateTime> date_of_end { get; set; }
-        public Nullable<bool> expired { get; set; }
+        public string name { get; set; }
+        public Nullable<double> square { get; set; }
+        public Nullable<int> population { get; set; }
+        public Nullable<int> metro_stations_count { get; set; }
+        public string building_type { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<personal_account> personal_account { get; set; }
-        public virtual subscriber subscriber1 { get; set; }
-        public virtual type_of_services type_of_services1 { get; set; }
+        public virtual ICollection<subscribers_addresses> subscribers_addresses { get; set; }
     }
 }

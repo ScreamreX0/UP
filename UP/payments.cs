@@ -12,20 +12,16 @@ namespace UP
     using System;
     using System.Collections.Generic;
     
-    public partial class personal_account
+    public partial class payments
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public personal_account()
-        {
-            this.repair_requsts = new HashSet<repair_requsts>();
-        }
-    
         public int id { get; set; }
-        public string number { get; set; }
-        public Nullable<int> treaty { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
+        public Nullable<double> payment_sum { get; set; }
+        public Nullable<double> subscriber_balance { get; set; }
+        public Nullable<System.DateTime> balance_date { get; set; }
+        public Nullable<double> debt { get; set; }
+        public Nullable<int> subscriber { get; set; }
     
-        public virtual treaty treaty1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<repair_requsts> repair_requsts { get; set; }
+        public virtual subscribers subscribers { get; set; }
     }
 }

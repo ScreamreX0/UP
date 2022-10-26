@@ -12,18 +12,19 @@ namespace UP
     using System;
     using System.Collections.Generic;
     
-    public partial class job_title
+    public partial class applicaitons
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public job_title()
-        {
-            this.staff = new HashSet<staff>();
-        }
-    
         public int id { get; set; }
-        public string name { get; set; }
+        public string number { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
+        public Nullable<int> subscriber { get; set; }
+        public string service { get; set; }
+        public string service_kind { get; set; }
+        public string serivce_type { get; set; }
+        public string status { get; set; }
+        public string problem_description { get; set; }
+        public string problem_type { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<staff> staff { get; set; }
+        public virtual subscribers subscribers { get; set; }
     }
 }

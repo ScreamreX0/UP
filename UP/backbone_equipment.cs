@@ -12,24 +12,14 @@ namespace UP
     using System;
     using System.Collections.Generic;
     
-    public partial class subscriber
+    public partial class backbone_equipment
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public subscriber()
-        {
-            this.treaty = new HashSet<treaty>();
-        }
-    
         public int id { get; set; }
-        public string phone { get; set; }
-        public string surname { get; set; }
+        public string number { get; set; }
         public string name { get; set; }
-        public string last_name { get; set; }
-        public string address { get; set; }
-        public string password { get; set; }
-        public string login { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<treaty> treaty { get; set; }
+        public Nullable<double> frequency { get; set; }
+        public Nullable<double> damping_factor { get; set; }
+        public string transfer_technology { get; set; }
+        public string location { get; set; }
     }
 }
