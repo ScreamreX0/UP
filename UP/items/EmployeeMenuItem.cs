@@ -14,33 +14,28 @@ namespace UP.items
     public partial class EmployeeMenuItem : UserControl
     {
         Form parent;
-        public EmployeeMenuItem(Form parent, string label)
+
+        public EmployeeMenuItem(Form parent, string menuItemLabel)
         {
             InitializeComponent();
 
             this.parent = parent;
-
-            this.label = label;
-            employeeMenuItemLabel.Text = this.label;
+            employeeMenuItemLabel.Text = menuItemLabel;
         }
 
-        private string label;
-
-        public string Label
+        public string getMenuItemLabel()
         {
-            get { 
-                return label; 
-            }
-            set
-            {
-                this.label = value;
-                employeeMenuItemLabel.Text = this.label;
-            }
+            return employeeMenuItemLabel.Text;
+        }
+
+        public void setEmployeeMenuItemLabel(string text)
+        {
+            employeeMenuItemLabel.Text = text;
         }
 
         private void employeeMenuItemLabel_Click(object sender, EventArgs e)
         {
-            (this.parent as EmployeeMenu).changePanel(label);
+            (this.parent as EmployeeMenu).changeMainPanel(employeeMenuItemLabel.Text);
         }
     }
 }

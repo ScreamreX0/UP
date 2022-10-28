@@ -47,6 +47,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Controls.Add(this.employeeMenuItemLabel);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "EmployeeMenuItem";
             this.Size = new System.Drawing.Size(119, 69);
             this.ResumeLayout(false);

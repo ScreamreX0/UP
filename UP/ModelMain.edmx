@@ -119,7 +119,6 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="number" Type="varchar" MaxLength="100" />
           <Property Name="first_name" Type="varchar" MaxLength="100" />
           <Property Name="name" Type="varchar" MaxLength="100" />
           <Property Name="last_name" Type="varchar" MaxLength="100" />
@@ -557,7 +556,6 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="first_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="last_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -1012,7 +1010,6 @@
             <EntityTypeMapping TypeName="UPModel.subscribers">
               <MappingFragment StoreEntitySet="subscribers">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="number" ColumnName="number" />
                 <ScalarProperty Name="first_name" ColumnName="first_name" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="last_name" ColumnName="last_name" />

@@ -94,16 +94,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UPDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="userPanels\EmployeeMenuItem.cs">
+    <Compile Include="items\EmployeeMenuItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="userPanels\EmployeeMenuItem.Designer.cs">
+    <Compile Include="items\EmployeeMenuItem.Designer.cs">
       <DependentUpon>EmployeeMenuItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="userPanels\EventItem.cs">
+    <Compile Include="items\EventItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="userPanels\EventItem.Designer.cs">
+    <Compile Include="items\EventItem.Designer.cs">
       <DependentUpon>EventItem.cs</DependentUpon>
     </Compile>
     <Compile Include="ModelMain.Context.cs">
@@ -156,11 +156,41 @@
     <Compile Include="treates.cs">
       <DependentUpon>ModelMain.tt</DependentUpon>
     </Compile>
+    <Compile Include="userPanels\BillingPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="userPanels\BillingPanel.Designer.cs">
+      <DependentUpon>BillingPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="userPanels\CRMPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="userPanels\CRMPanel.Designer.cs">
+      <DependentUpon>CRMPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="userPanels\EquipmentPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="userPanels\EquipmentPanel.Designer.cs">
+      <DependentUpon>EquipmentPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="userPanels\ActivesPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="userPanels\ActivesPanel.Designer.cs">
+      <DependentUpon>ActivesPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="userPanels\SubscribersPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="userPanels\SubscribersPanel.Designer.cs">
       <DependentUpon>SubscribersPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="userPanels\SupportUserPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="userPanels\SupportUserPanel.Designer.cs">
+      <DependentUpon>SupportUserPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="utils\Helper.cs" />
     <EmbeddedResource Include="forms\Auth.resx">
@@ -169,10 +199,10 @@
     <EmbeddedResource Include="forms\EmployeeMenu.resx">
       <DependentUpon>EmployeeMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="userPanels\EmployeeMenuItem.resx">
+    <EmbeddedResource Include="items\EmployeeMenuItem.resx">
       <DependentUpon>EmployeeMenuItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="userPanels\EventItem.resx">
+    <EmbeddedResource Include="items\EventItem.resx">
       <DependentUpon>EventItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -185,6 +215,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="userPanels\CRMPanel.resx">
+      <DependentUpon>CRMPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="userPanels\SubscribersPanel.resx">
       <DependentUpon>SubscribersPanel.cs</DependentUpon>
     </EmbeddedResource>
